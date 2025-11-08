@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Flashcard(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    term = models.CharField(max_length=255)
+    term = models.TextField()
     definition = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -18,4 +18,3 @@ class Quiz(models.Model):
 class QuizAttempt(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     score = models.FloatField(default=0)
-    completed_at = models.DateTimeField(auto_now_add=True)
